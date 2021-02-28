@@ -11,12 +11,14 @@ const dicePara = document.querySelector("#dice-para")
 const sumPara = document.querySelector("#sum-para")
 const diceCount = (e) => {
     e.preventDefault();
+    sumPara.textContent = "Sum = ";
     sum = 0
     const numberInput = document.querySelector("#dice-length-input")
     for (let i = 0; i < numberInput.valueAsNumber; i++) {
         const randIdx = Math.floor(Math.random() * dice.length)
         dicePara.textContent += dice[randIdx]
-        sumPara.textContent+=dice[randIdx]
+        sum += Number (dice[randIdx])
+        sumPara.textContent = sum
     }
 
 }
@@ -39,7 +41,7 @@ const saveDiceCount = (e) => {
     ul.appendChild(li);
 
     dicePara.textContent = dicePara.textContent += dice[randIdx];
-    sumPara.textContent = " ";
+    sumPara.textContent = " Sum = ";
 }
 
 lengthForm.addEventListener("submit", diceCount, saveDiceCount)
