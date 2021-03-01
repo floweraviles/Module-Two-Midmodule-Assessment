@@ -14,6 +14,7 @@ const historyTitle = document.querySelector("#history-title")
 
 const diceCount = (e) => {
     e.preventDefault();
+    dicePara.textContent = "";
     sumPara.textContent = "Sum = ";
     sum = 0
     const numberInput = document.querySelector("#dice-length-input")
@@ -30,18 +31,5 @@ const diceCount = (e) => {
     li.textContent = `${dicePara.textContent} = ${sum}`
     ul.appendChild(li);
 }
-
-// const saveDiceCount = (e) => {
-//     e.preventDefault();
-//    const historyTitle = document.querySelector("#dice-history")
-//     const ul = document.querySelector("ul");
-//     const li = document.createElement("li"); 
-//     li.textContent = dicePara.textContent;
-
-//     ul.appendChild(li);
-
-//     dicePara.textContent = dicePara.textContent += dice[randIdx];
-//     sumPara.textContent = " Sum = ";
-// } No longer need two function!!!!! 
 
 lengthForm.addEventListener("submit", diceCount )
