@@ -9,6 +9,9 @@ const dice =
 const lengthForm = document.querySelector("#length-form")
 const dicePara = document.querySelector("#dice-para")
 const sumPara = document.querySelector("#sum-para")
+const historyTitle = document.querySelector("#history-title")
+
+
 const diceCount = (e) => {
     e.preventDefault();
     sumPara.textContent = "Sum = ";
@@ -17,31 +20,28 @@ const diceCount = (e) => {
     for (let i = 0; i < numberInput.valueAsNumber; i++) {
         const randIdx = Math.floor(Math.random() * dice.length)
         dicePara.textContent += dice[randIdx]
-        sum += Number (dice[randIdx])
-        sumPara.textContent = sum
+        sum += randIdx+ 1
+        
     }
-
-}
-
-// const diceSum = (e) => {
-//     e.preventDefault();
-//     const dicePara =document.querySelector("#dice-para")
-//     let die = {'⚀': 1, '⚁': 2,'⚂': 3,'⚃': 4,'⚄': 5,'⚅': 6,}
-//     for (let i =0; i < dicePara.length; i++) {
-//         if 
-//     }
-// }
-const saveDiceCount = (e) => {
-    e.preventDefault();
-   
+    sumPara.textContent = "Sum = " + sum
+    historyTitle.textContent = "History"
     const ul = document.querySelector("ul");
-    const li = document.createElement("li"); 
-    li.textContent = dicePara.textContent;
-
+    const li = document.createElement("li");
+    li.textContent = `${dicePara.textContent} = ${sum}`
     ul.appendChild(li);
-
-    dicePara.textContent = dicePara.textContent += dice[randIdx];
-    sumPara.textContent = " Sum = ";
 }
 
-lengthForm.addEventListener("submit", diceCount, saveDiceCount)
+// const saveDiceCount = (e) => {
+//     e.preventDefault();
+//    const historyTitle = document.querySelector("#dice-history")
+//     const ul = document.querySelector("ul");
+//     const li = document.createElement("li"); 
+//     li.textContent = dicePara.textContent;
+
+//     ul.appendChild(li);
+
+//     dicePara.textContent = dicePara.textContent += dice[randIdx];
+//     sumPara.textContent = " Sum = ";
+// } No longer need two function!!!!! 
+
+lengthForm.addEventListener("submit", diceCount )

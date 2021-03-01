@@ -1,3 +1,18 @@
-section {
+#dice-live {
+    border: black solid 5px;
+    padding-left: 5px;
+    padding-top: 25px;
+}
+#history {
+    border: black solid 5px;
+    padding-left: 5px;
     
+}
+
+#dice-para {
+    font-size: 40px;
+}
+
+li {
+    font-size: 20px;
 }
